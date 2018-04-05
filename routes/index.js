@@ -1,14 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const jsonfile = require("jsonfile");
 
-const Api = require("../models/Api");
+const HomeController = require("../controllers/HomeController");
+const controller = new HomeController();
 
-/* GET home page. */
-router.get("/", function(req, res, next) {
-  const api = new Api();
-  api.getCharacter(1);
-  res.render("index", { title: "Express" });
-});
+// HomePage
+router.get("/", (req, res) => controller.index(req, res));
 
 module.exports = router;
