@@ -1,0 +1,11 @@
+extends ../layout
+
+block content 
+    h1.title="Page Article"
+    ul
+    each article in articles
+        li= article.title
+        li= article.description
+        img(src=article.photo)
+
+        

@@ -1,0 +1,10 @@
+extends ../layout
+
+block content 
+    h1.title="Page Users"
+    ul
+    each prenom in prenoms
+        li= prenom
+    ul
+    each user in users
+        li= user.name
