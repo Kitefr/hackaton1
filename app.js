@@ -9,7 +9,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 const logger = require("morgan"); // Module for Log
 const bodyParser = require("body-parser"); // Module for POST/GET datas
 // const db = require(`./models/index.js`);
@@ -38,9 +38,9 @@ app.use(
 /**
  * Routing
  */
-const routesIndex = require("./routes/index");
-
-app.get("/", routesIndex);
+const HomeController = require("./controllers/HomeController");
+const controller = new HomeController();
+app.get("/", (req, res) => controller.home(req, res));
 
 // Handle 404
 app.use((req, res) => {
@@ -68,6 +68,6 @@ app.use((error, req, res, next) => {
  ******************************************************************************************************************************************/
 
 app.listen(port, err => {
-  console.clear();
-  if (!err) console.log("Site is live... Go ahead");
+  // console.clear();
+  if (!err) console.log(`Site is live... Go ahead on port ${port}`);
 });
