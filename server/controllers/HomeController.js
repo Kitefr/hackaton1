@@ -16,7 +16,7 @@ class HomeController {
       CharacterFile.update(data)
     );
 
-    res.render("index");
+    res.send("Works !");
   }
 }
 

@@ -10,15 +10,11 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const port = process.env.PORT || 5000;
-const logger = require("morgan"); // Module for Log
 const bodyParser = require("body-parser"); // Module for POST/GET datas
-// const db = require(`./models/index.js`);
 
 app.use(express.static(__dirname + "/public")); // all statics files in /public
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
 
-app.use(logger("dev"));
 app.use(bodyParser.json()); // API response en JSON
 app.use(
   // donnée en get post non encodé par l'URL
