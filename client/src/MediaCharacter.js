@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import characters from './assets/characters.json';
-
 import CharacterVs from './CharacterVs';
 
 const SmallText = styled.p`
