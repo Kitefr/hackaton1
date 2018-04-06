@@ -26,11 +26,10 @@ const ThirdContenair = styled.div`
 `
 
 
-
-
 class App extends Component {
   render() {
     return (
+
       <div>
         <MainContenair className="contenair">
           <FirstContenair className="row align-items-center">
@@ -55,6 +54,7 @@ class App extends Component {
           
           </ThirdContenair>
         </MainContenair>
+
       </div>
     );
   }
