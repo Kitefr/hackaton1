@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import styled from "styled-components";
-import CharacterVs from "./CharacterVs";
-import MediaCharacter from "./MediaCharacter";
+
+import styled from 'styled-components';
+import characters from './assets/characters.json';
+import MediaCharacter from './MediaCharacter';
 
 const MainContenair = styled.div`
   position: absolute;
@@ -10,10 +11,10 @@ const MainContenair = styled.div`
   z-index: 1;
   left: 0;
 `;
+
 const FirstContenair = styled.div`
-  height: 40%;
-  background: red;
-`;
+  height:40%;
+`
 
 const SecondContenair = styled.div`
   height: 50%;
@@ -26,21 +27,19 @@ const ThirdContenair = styled.div`
 `;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      characters
+    }
+  }
+  
   render() {
     return (
       <div>
         <MainContenair className="contenair">
           <FirstContenair className="row align-items-center">
-            <div className="col">
-              <div className="row justify-content-end">
-                <CharacterVs />
-              </div>
-            </div>
-            <div className="col">
-              <div className="row justify-content-center">
-                <MediaCharacter />
-              </div>
-            </div>
+            <MediaCharacter />
           </FirstContenair>
           <SecondContenair className="row" />
           <ThirdContenair className="row" />

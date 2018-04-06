@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import characters from "./assets/characters.json";
-import styled from "styled-components";
+import characters from './assets/characters.json';
+import styled from 'styled-components';
 
 const CharacterBox = styled.div`
   width: 110px;

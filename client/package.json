@@ -2,7 +2,7 @@
   "name": "hackaton1",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "bootstrap": "^4.0.0",
     "lodash": "^4.17.5",
