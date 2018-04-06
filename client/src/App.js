@@ -26,6 +26,8 @@ const ThirdContenair = styled.div`
 `
 
 
+
+
 class App extends Component {
   render() {
     return (
@@ -53,7 +55,6 @@ class App extends Component {
           
           </ThirdContenair>
         </MainContenair>
-        
       </div>
     );
   }
