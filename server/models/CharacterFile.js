@@ -20,7 +20,31 @@ class CharacterFile {
    * @memberof CharacterFile
    */
   static get filename() {
-    return "../characters.json";
+    return "characters.json";
+  }
+
+  /**
+   * Get the dir.
+   * Absolute Path.
+   *
+   * @readonly
+   * @static
+   * @memberof CharacterFile
+   */
+  static get dir() {
+    return "../client/src/assets/";
+  }
+
+  /**
+   * Get the file path.
+   * Absolute Path.
+   *
+   * @readonly
+   * @static
+   * @memberof CharacterFile
+   */
+  static get path() {
+    return this.dir + this.filename;
   }
 
   /**
@@ -33,7 +57,7 @@ class CharacterFile {
    * @memberof CharacterFile
    */
   static write(obj) {
-    jsonfile.writeFile(this.filename, obj, { spaces: 2, EOL: "\r\n" }, err => {
+    jsonfile.writeFile(this.path, obj, { spaces: 2, EOL: "\r\n" }, err => {
       console.log(err);
     });
   }
@@ -46,7 +70,7 @@ class CharacterFile {
    * @memberof CharacterFile
    */
   static read() {
-    return jsonfile.readFile(this.filename, (err, obj) => {
+    return jsonfile.readFile(this.path, (err, obj) => {
       console.log(obj);
     });
   }
@@ -60,17 +84,12 @@ class CharacterFile {
    * @memberof CharacterFile
    */
   static update(obj) {
-    jsonfile.readFile(this.filename, (err, data) => {
+    jsonfile.readFile(this.path, (err, data) => {
       data.push(obj);
       console.log(data);
-      jsonfile.writeFile(
-        this.filename,
-        data,
-        { spaces: 2, EOL: "\r\n" },
-        err => {
-          console.log(err);
-        }
-      );
+      jsonfile.writeFile(this.path, data, { spaces: 2, EOL: "\r\n" }, err => {
+        console.log(err);
+      });
     });
   }
 
@@ -82,7 +101,7 @@ class CharacterFile {
    * @memberof CharacterFile
    */
   static isEmpty() {
-    const stats = fs.statSync(this.filename);
+    const stats = fs.statSync(this.path);
     const fileSizeInBytes = stats.size;
     const size = fileSizeInBytes / 1000.0;
     return size < 0.5 ? true : false;
