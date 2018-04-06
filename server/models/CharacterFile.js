@@ -33,14 +33,9 @@ class CharacterFile {
    * @memberof CharacterFile
    */
   static write(obj) {
-    jsonfile.writeFile(
-      this.filename,
-      [obj],
-      { spaces: 2, EOL: "\r\n" },
-      err => {
-        console.log(err);
-      }
-    );
+    jsonfile.writeFile(this.filename, obj, { spaces: 2, EOL: "\r\n" }, err => {
+      console.log(err);
+    });
   }
 
   /**
