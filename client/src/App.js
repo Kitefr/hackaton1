@@ -1,60 +1,50 @@
 import React, { Component } from "react";
-import styled from 'styled-components';
-import CharacterVs from './CharacterVs';
-import MediaCharacter from './MediaCharacter';
+import styled from "styled-components";
+import CharacterVs from "./CharacterVs";
+import MediaCharacter from "./MediaCharacter";
 
 const MainContenair = styled.div`
-  position:absolute;
-  height:100%;
-  width:100%;
-  z-index:1;
-  left:0;
-` 
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  left: 0;
+`;
 const FirstContenair = styled.div`
-  height:40%;
-  background:red;
-`
+  height: 40%;
+  background: red;
+`;
 
 const SecondContenair = styled.div`
-  height:50%;
-  background:grey;
-`
+  height: 50%;
+  background: grey;
+`;
 
 const ThirdContenair = styled.div`
-  height:10%;
-  background:yellow;
-`
-
+  height: 10%;
+  background: yellow;
+`;
 
 class App extends Component {
   render() {
     return (
-
       <div>
         <MainContenair className="contenair">
           <FirstContenair className="row align-items-center">
             <div className="col">
               <div className="row justify-content-end">
-                <CharacterVs></CharacterVs>
+                <CharacterVs />
               </div>
             </div>
             <div className="col">
               <div className="row justify-content-center">
-                <MediaCharacter/>
+                <MediaCharacter />
               </div>
             </div>
-            
-            
-            
           </FirstContenair>
-          <SecondContenair className="row">
-          
-          </SecondContenair>
-          <ThirdContenair className="row">
-          
-          </ThirdContenair>
+          <SecondContenair className="row" />
+          <ThirdContenair className="row" />
         </MainContenair>
-
       </div>
     );
   }
