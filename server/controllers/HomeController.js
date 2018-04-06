@@ -11,11 +11,9 @@ class HomeController {
    * @param {*} res
    */
   home(req, res) {
-    const player1 = Api.getCharacter(1).then(data => CharacterFile.write(data));
-    const player2 = Api.getCharacter(2).then(data =>
-      CharacterFile.update(data)
-    );
-
+    if (CharacterFile.isEmpty()) {
+      Api.getAll().then(data => CharacterFile.write(data));
+    }
     res.send("Works !");
   }
 }
