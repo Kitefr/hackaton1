@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import characters from './characters.json';
+import characters from './assets/characters.json';
 import styled from 'styled-components';
 
 
