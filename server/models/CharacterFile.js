@@ -1,4 +1,5 @@
 const jsonfile = require("jsonfile");
+const fs = require("fs");
 const path = require("path");
 
 /**
@@ -19,7 +20,7 @@ class CharacterFile {
    * @memberof CharacterFile
    */
   static get filename() {
-    return "./characters.json";
+    return "../characters.json";
   }
 
   /**
@@ -76,6 +77,20 @@ class CharacterFile {
         }
       );
     });
+  }
+
+  /**
+   * Return if the file is empty or not based on the file size.
+   *
+   * @static
+   * @returns {Boolean}
+   * @memberof CharacterFile
+   */
+  static isEmpty() {
+    const stats = fs.statSync(this.filename);
+    const fileSizeInBytes = stats.size;
+    const size = fileSizeInBytes / 1000.0;
+    return size < 0.5 ? true : false;
   }
 }
 
