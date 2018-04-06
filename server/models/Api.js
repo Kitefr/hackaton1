@@ -1,4 +1,5 @@
 const axios = require("axios");
+const async = require("async");
 
 class Api {
   constructor() {}
@@ -12,7 +13,7 @@ class Api {
   static getAll() {
     return axios
       .get(`https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json`)
-      .then(res => {})
+      .then(res => res.data)
       .catch(err => console.log(err));
   }
 
