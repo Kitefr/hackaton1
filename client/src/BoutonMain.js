@@ -1,17 +1,32 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import sample from "lodash/sample";
 
-const Button = styled.button`
-  color: black;
-  width: 10%;
-  height : 10%;
-`;
+
 
 class BoutonMain extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.selectVS = this.selectVS.bind(this);
+  }
+  
+
+  selectVS(users) {
+    this.props.setCharacter({npc:sample(users)},{connect:true});
+  }
+
   render() {
     return (
-      <div>
-        <Button>Valider</Button>
+      <div className="col">
+        <div className="row justify-content-center">
+        {this.props.currentUser &&
+            <button className="btn btn-outline-dark" onClick={() => this.selectVS(this.props.users)}>Valider</button>
+        }
+        {!this.props.currentUser &&
+            <button className="btn btn-outline-dark disabled">Choose your Character !</button>
+        }
+        </div>
+        
       </div>
     );
   }
