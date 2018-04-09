@@ -2,18 +2,28 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const Img = styled.img`
-  width : 120px;
-  height : 120px;
-  margin-right : 8px;
-  margin-top : 8px;
-  
+  width:100%;
+  height:90px;
 `;
 
 class CharacterList extends Component {
+    constructor(props) {
+      super(props);
+      this.selectChar = this.selectChar.bind(this);
+    }
+
+    selectChar(user){
+      this.props.setCharacter({currentUser:user});
+    }
+
+    
+
   render() {
+
+
     return (
-      <div>
-        <Img src="http://www.leblogdukitsch.com/wp-content/uploads/2011/01/angela_lizon_1.jpg" alt="" class="img-responsive" />
+      <div className="col-3" onClick={() => this.selectChar(this.props.user)}>
+        <Img src={this.props.user.images.sm} alt="" class="img-responsive" />
       </div>
     );
   }

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import characters from './assets/characters.json';
 import styled from 'styled-components';
 
 const CharacterBox = styled.div`
-  width: 110px;
+  width: 100%;
   height: 110px;
 `;
 
@@ -13,17 +12,15 @@ const CharacterImg = styled.img`
 `;
 
 class CharacterVs extends Component {
-  state = {
-    character: characters[0]
-  };
+
 
   render() {
-    console.log(characters);
+
 
     return (
       <div>
         <CharacterBox>
-          <CharacterImg src={this.state.character.images.sm} />
+          <CharacterImg src={this.props.img.sm} />
         </CharacterBox>
       </div>
     );
